@@ -1,0 +1,22 @@
+{
+  "name": "react-native-baidu-ios",
+  "version": "1.0.0",
+  "description": "zhoutong",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhoutongbie/react-native-baidu-ios.git"
+  },
+  "keywords": [
+    "baidulocation"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zhoutongbie/react-native-baidu-ios/issues"
+  },
+  "homepage": "https://github.com/zhoutongbie/react-native-baidu-ios#readme"
+}
