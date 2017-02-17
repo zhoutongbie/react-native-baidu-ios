@@ -100,7 +100,7 @@ RCT_EXPORT_METHOD(testPrint:(NSString *)name info:(NSDictionary *)info) {
     RCTLogInfo(@"%@: %@", name, info);
     //aaa
 }
-RCT_REMAP_METHOD(startLocation,
+RCT_REMAP_METHOD(start,
                  resolver:(RCTPromiseResolveBlock)resolve
                  rejecter:(RCTPromiseRejectBlock)reject) {
     
@@ -123,7 +123,7 @@ RCT_REMAP_METHOD(startLocation,
     
 }
 
-RCT_EXPORT_METHOD(stopLocation){
+RCT_EXPORT_METHOD(stop){
     BBB *location = [BBB sharedInstance];
     [location.locationService stopUserLocationService];
     NSLog(@"结束定位：%@",@"");
@@ -207,7 +207,7 @@ RCT_EXPORT_METHOD(setAllowsBackgroundLocationUpdates:(BOOL)isAllows){
         //        [self.bridge.eventDispatcher sendAppEventWithName:DidUpdateBMKUserLocation body:dic];
         if(self.reject_self){
             self.resove_self(dic);
-            [self stopLocation];
+            [self stop];
         }
         
         
@@ -215,7 +215,7 @@ RCT_EXPORT_METHOD(setAllowsBackgroundLocationUpdates:(BOOL)isAllows){
         //        [self.bridge.eventDispatcher sendAppEventWithName:DidFailToLocateUserWithError body:@{@"code:":@(error),@"message":@"位置反解析失败"}];
         if(self.reject_self){
             self.reject_self(@"-1001", @"位置反解析失败", nil);
-            [self stopLocation];
+            [self stop];
         }
     }
 }

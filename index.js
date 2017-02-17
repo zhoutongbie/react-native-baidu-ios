@@ -13,11 +13,11 @@ var didStopLocatingUserSubscript,
     didFailToLocateUserWithErrorSubscript;
 
 var BaiduLocation = {
-    startLocation(){
-        BaiduLocationModule.startLocation();
+    start(){
+        BaiduLocationModule.start();
     },
-    stopLocation(){
-        BaiduLocationModule.stopLocation();
+    stop(){
+        BaiduLocationModule.stop();
     },
 
     didStopLocatingUser(handler: Function){
