@@ -205,11 +205,18 @@ RCT_EXPORT_METHOD(setAllowsBackgroundLocationUpdates:(BOOL)isAllows){
         NSLog(@"位置更新：%@",dic);
         
         //        [self.bridge.eventDispatcher sendAppEventWithName:DidUpdateBMKUserLocation body:dic];
-        self.resove_self(dic);
+        if(self.reject_self){
+            self.resove_self(dic);
+            [self stopLocation];
+        }
+        
         
     }else{
         //        [self.bridge.eventDispatcher sendAppEventWithName:DidFailToLocateUserWithError body:@{@"code:":@(error),@"message":@"位置反解析失败"}];
-        self.reject_self(@"-1001", @"位置反解析失败", nil);
+        if(self.reject_self){
+            self.reject_self(@"-1001", @"位置反解析失败", nil);
+            [self stopLocation];
+        }
     }
 }
 
